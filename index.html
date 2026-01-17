@@ -827,10 +827,22 @@
             margin-bottom: 2rem;
         }
         
-        .footer-brand img {
+        .footer-brand .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-brand .footer-logo-amy {
             height: 50px;
             width: auto;
-            margin-bottom: 1rem;
+        }
+        
+        .footer-brand .footer-logo-southbaja {
+            height: 45px;
+            width: auto;
         }
         
         .footer-brand p {
@@ -1262,7 +1274,10 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="logo-amy-rex.png" alt="Amy Rex">
+                    <div class="footer-logos">
+                        <img src="logo-amy-rex.png" alt="Amy Rex" class="footer-logo-amy">
+                        <img src="logo-southbaja-realtors.png" alt="South Baja Realtors" class="footer-logo-southbaja">
+                    </div>
                     <p>Property Management & Real Estate in Todos Santos, Baja California Sur</p>
                 </div>
                 
@@ -1304,7 +1319,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2026 Amy Rex Todos Santos. All rights reserved.</p>
-                <p>MLS #25-4094 | Fideicomiso: Banorte</p>
+                <p>MLS #25-4094 | Listed by Amy Rex, South Baja Realtors | Fideicomiso: Banorte</p>
             </div>
         </div>
     </footer>
