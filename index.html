@@ -106,104 +106,110 @@
             transition: all 0.3s ease;
             padding: 1rem 0;
             background: transparent;
-            border: none;
-        }
-        
-        nav * {
-            border: none !important;
-            outline: none !important;
         }
         
         nav.scrolled {
-            background: rgba(28, 25, 23, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(28, 25, 23, 0.92);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
             padding: 0.35rem 0;
         }
         
         nav .container {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
+            gap: 1rem;
         }
         
-        nav img {
-            height: 60px;
-            width: auto;
-            transition: all 0.3s ease;
-            display: block;
-            border: none;
-        }
-        
-        nav.scrolled img {
-            height: 38px;
-        }
-        
-        nav .contact-info {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-        
-        nav .contact-btn {
+        /* Phone (left) */
+        nav .nav-phone {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: white;
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
-            border: none;
-            background: none;
-            outline: none;
-            cursor: pointer;
-            padding: 0;
-            margin: 0;
+            justify-self: start;
         }
         
-        nav .contact-btn:hover {
+        nav .nav-phone svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        nav .nav-phone:hover {
             color: var(--terracota);
         }
         
-        nav .contact-btn:focus,
-        nav .contact-btn:active {
-            outline: none;
-            border: none;
-        }
-        
-        nav .contact-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+        /* Logo (center) */
+        nav .nav-logo {
+            justify-self: center;
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-            flex-shrink: 0;
-            border: none;
         }
         
-        nav .contact-icon svg {
+        nav .nav-logo img {
+            height: 60px;
+            width: auto;
+            transition: all 0.3s ease;
             display: block;
-            border: none;
-            outline: none;
         }
         
-        nav .contact-btn:hover .contact-icon {
+        nav.scrolled .nav-logo img {
+            height: 38px;
+        }
+        
+        /* Contact Button (right) */
+        nav .nav-contact-btn {
+            justify-self: end;
             background: var(--terracota);
+            color: white;
+            padding: 0.65rem 1.75rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--terracota);
+            letter-spacing: 0.05em;
         }
         
-        nav .contact-text {
-            line-height: 1;
+        nav .nav-contact-btn:hover {
+            background: transparent;
+            color: var(--terracota);
         }
         
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            nav .contact-text {
+            nav .container {
+                grid-template-columns: auto 1fr auto;
+                gap: 0.75rem;
+            }
+            
+            nav .nav-phone span {
                 display: none;
             }
+            
+            nav .nav-phone svg {
+                width: 24px;
+                height: 24px;
+            }
+            
+            nav .nav-logo img {
+                height: 50px;
+            }
+            
+            nav.scrolled .nav-logo img {
+                height: 36px;
+            }
+            
+            nav .nav-contact-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
         }
+
         
         /* Hero */
         .hero {
@@ -898,27 +904,20 @@
     <!-- Navbar -->
     <nav id="navbar">
         <div class="container">
-            <a href="/">
+            <a href="tel:+526121039401" class="nav-phone">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+                <span>+52 612 103 9401</span>
+            </a>
+            
+            <a href="/" class="nav-logo">
                 <img src="logo-amy-rex.png" alt="Amy Rex Todos Santos">
             </a>
-            <div class="contact-info">
-                <a href="tel:+526121039401" class="contact-btn">
-                    <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
-                    </div>
-                    <span class="contact-text">+52 612 103 9401</span>
-                </a>
-                <a href="mailto:amy@amyrextodossantos.com" class="contact-btn">
-                    <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
-                    </div>
-                    <span class="contact-text">Contact</span>
-                </a>
-            </div>
+            
+            <a href="#contact" class="nav-contact-btn">
+                Contact
+            </a>
         </div>
     </nav>
 
@@ -1207,14 +1206,14 @@
     </section>
 
     <!-- Contact Form -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title fade-in">Schedule Your Private Tour</h2>
             <p class="contact-intro fade-in">Experience Costa Eterea in person. Contact Amy Rex to arrange a private showing or video tour at your convenience.</p>
             
             <form class="contact-form fade-in" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
                 <!-- Web3Forms Access Key - Amy necesita obtener su propia key gratis en web3forms.com -->
-                <input type="hidden" name="access_key" value="75888e4b-7e83-4818-af4a-a0655fac4231">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 <input type="hidden" name="subject" value="Costa Eterea - Inquiry from Website">
                 <input type="hidden" name="from_name" value="Costa Eterea Website">
                 
